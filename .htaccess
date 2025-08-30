@@ -1,0 +1,37 @@
+# Configuración de seguridad para Factor M
+Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com/ajax/libs/ https://fonts.googleapis.com/; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com/ajax/libs/ https://fonts.googleapis.com/; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com/;"
+
+# Configuración adicional de seguridad
+Header always set X-Content-Type-Options "nosniff"
+Header always set X-Frame-Options "SAMEORIGIN"
+Header always set X-XSS-Protection "1; mode=block"
+
+# Configuración de caché
+<FilesMatch "\.(css|js|jpg|jpeg|png|gif|ico|svg|webp)$">
+    Header set Cache-Control "max-age=31536000, public"
+</FilesMatch>
+
+# Configuración para archivos HTML
+<FilesMatch "\.(html|htm)$">
+    Header set Cache-Control "max-age=3600, public"
+</FilesMatch>
+
+# Prevenir acceso a archivos sensibles
+<Files ~ "^\.">
+    Order allow,deny
+    Deny from all
+</Files>
+
+# Prevenir listado de directorios
+Options -Indexes
+
+# Configuración de redirección para URLs amigables
+RewriteEngine On
+
+# Redireccionar a HTTPS si está disponible
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Manejo de errores
+ErrorDocument 404 /404.html
+ErrorDocument 500 /500.html

@@ -40,6 +40,7 @@ function loadHeaderAndFooter() {
     loadComponent('header-placeholder', basePath + 'header.html', function() {
         initNavigation();
         updateNavigationLinks(basePath);
+        initTheme(); // Inicializar tema después de cargar el header
     });
     loadComponent('footer-placeholder', basePath + 'footer.html');
 }
@@ -196,6 +197,53 @@ function initArticleCards() {
             // window.location.href = '/articulo/' + this.dataset.id;
         });
     });
+}
+
+function initTheme() {
+    const themeToggle = document.getElementById('theme-toggle');
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    
+    // Aplicar el tema guardado
+    setTheme(savedTheme);
+    
+    // Configurar el evento de clic para el botón
+    if (themeToggle) {
+        themeToggle.addEventListener('click', toggleTheme);
+    }
+}
+
+function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    
+    setTheme(newTheme);
+    localStorage.setItem('theme', newTheme);
+}
+
+function setTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    
+    // Actualizar el título del botón para accesibilidad
+    const themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle) {
+        const newTitle = theme === 'dark' ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro';
+        themeToggle.setAttribute('title', newTitle);
+        themeToggle.setAttribute('aria-label', newTitle);
+    }
+    
+    // Mostrar/ocultar iconos según el tema
+    const lightIcon = document.querySelector('.light-icon');
+    const darkIcon = document.querySelector('.dark-icon');
+    
+    if (lightIcon && darkIcon) {
+        if (theme === 'dark') {
+            lightIcon.style.display = 'none';
+            darkIcon.style.display = 'block';
+        } else {
+            lightIcon.style.display = 'block';
+            darkIcon.style.display = 'none';
+        }
+    }
 }
 
 })();

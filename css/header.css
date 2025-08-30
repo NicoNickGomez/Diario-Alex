@@ -4,13 +4,14 @@
 */
 
 header {
-    background: #1A2E4F;
-    color: white;
+    background: var(--header-bg);
+    color: var(--header-text);
     padding: 1rem 0;
     position: sticky;
     top: 0;
     z-index: 100;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .header-content {
@@ -25,11 +26,12 @@ header {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     font-size: 2.5rem;
-    color: #D72638;
+    color: var(--accent-color);
     text-decoration: none;
     display: flex;
     align-items: center;
     margin-right: 2rem;
+    transition: color 0.3s ease;
 }
 
 /* Navegación principal */
@@ -40,12 +42,12 @@ header {
     flex-wrap: wrap;
 }
 .primary-navigation a {
-    color: white;
+    color: var(--header-text);
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s;
     padding: 0.5rem 0;
 }
 .primary-navigation a:hover {
-    color: #D72638;
+    color: var(--header-hover);
 }
