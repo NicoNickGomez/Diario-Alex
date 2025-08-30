@@ -37,8 +37,28 @@ function loadComponent(placeholderId, filePath, callback) {
 
 function loadHeaderAndFooter() {
     const basePath = window.location.pathname.includes('/pages/') ? '../' : '';
-    loadComponent('header-placeholder', basePath + 'header.html', initNavigation);
+    loadComponent('header-placeholder', basePath + 'header.html', function() {
+        initNavigation();
+        updateNavigationLinks(basePath);
+    });
     loadComponent('footer-placeholder', basePath + 'footer.html');
+}
+
+function updateNavigationLinks(basePath) {
+    const navLinks = document.querySelectorAll('#primary-navigation a');
+    navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href && !href.startsWith('http') && !href.startsWith('#') && !href.startsWith('mailto:')) {
+            // Si ya es una ruta relativa que empieza con "pages/", agregar el basePath
+            if (href.startsWith('pages/')) {
+                link.setAttribute('href', basePath + href);
+            }
+            // Si es "index.html", manejarlo según la ubicación
+            else if (href === 'index.html') {
+                link.setAttribute('href', basePath + href);
+            }
+        }
+    });
 }
 
 // La navegación móvil ahora está manejada por navigation.js
