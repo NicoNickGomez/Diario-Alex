@@ -6,7 +6,7 @@ const config = {
     fontAwesomeUrl: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css',
     googleFontsUrl: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap',
     cssFiles: ['styles.css', 'base.css', 'header.css', 'components.css', 'theme.css'],
-    jsFiles: ['main.js', 'contador-tiempo.js', 'theme.js']
+    jsFiles: ['main.js', 'contador-tiempo.js']
 };
 
 // Lista de páginas HTML
@@ -20,11 +20,6 @@ const htmlPages = [
 function hasFontAwesome(content) {
     return content.includes('font-awesome') || content.includes('fontawesome') || 
            content.includes('cdnjs.cloudflare.com/ajax/libs/font-awesome');
-}
-
-// Función para verificar si un archivo tiene theme.js
-function hasThemeJS(content) {
-    return content.includes('theme.js');
 }
 
 // Función para agregar Font Awesome a un archivo HTML
@@ -57,34 +52,11 @@ function addFontAwesome(filePath, basePath) {
     }
 }
 
-// Función para agregar theme.js a un archivo HTML
-function addThemeJS(filePath, basePath) {
-    try {
-        let content = fs.readFileSync(filePath, 'utf8');
-        
-        if (hasThemeJS(content)) {
-            console.log(`✓ ${filePath} ya tiene theme.js`);
-            return true;
-        }
-        
-        // Agregar theme.js antes del cierre del body
-        const themeScript = `\n    <script src="${basePath}js/theme.js"></script>\n</body>`;
-        content = content.replace(/<\/body>/i, themeScript);
-        fs.writeFileSync(filePath, content, 'utf8');
-        console.log(`✓ ${filePath} actualizado con theme.js`);
-        return true;
-    } catch (error) {
-        console.error(`✗ Error procesando ${filePath}:`, error.message);
-        return false;
-    }
-}
-
 // Función principal de mantenimiento
 function runMaintenance() {
     console.log('🚀 Iniciando mantenimiento del sitio...\n');
     
     let fontAwesomeCount = 0;
-    let themeJSCount = 0;
     
     // Procesar cada página HTML
     htmlPages.forEach(page => {
@@ -94,7 +66,6 @@ function runMaintenance() {
             console.log(`📄 Procesando: ${fullPath}`);
             
             if (addFontAwesome(fullPath, page.basePath)) fontAwesomeCount++;
-            if (addThemeJS(fullPath, page.basePath)) themeJSCount++;
             
             console.log(''); // Línea en blanco para separar
         } else {
@@ -105,7 +76,6 @@ function runMaintenance() {
     // Resumen
     console.log('📊 Resumen del mantenimiento:');
     console.log(`✅ Font Awesome agregado a ${fontAwesomeCount} de ${htmlPages.length} páginas`);
-    console.log(`✅ theme.js agregado a ${themeJSCount} de ${htmlPages.length} páginas`);
     console.log('\n🎯 Próximos pasos:');
     console.log('1. Verificar que todas las páginas carguen correctamente');
     console.log('2. Probar el botón de cambio de tema en cada página');

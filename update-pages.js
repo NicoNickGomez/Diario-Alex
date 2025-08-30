@@ -18,22 +18,25 @@ const pathConfig = {
     'index.html': {
         css: './css/styles.css',
         jsMain: './js/main.js',
-        jsContador: './js/contador-tiempo.js',
-        jsTheme: './js/theme.js'
+        jsContador: './js/contador-tiempo.js'
     },
     'pages/deportes.html': {
         css: '../css/styles.css',
         jsMain: '../js/main.js',
-        jsContador: '../js/contador-tiempo.js',
-        jsTheme: '../js/theme.js'
+        jsContador: '../js/contador-tiempo.js'
     },
     'pages/la-columna-del-peluche.html': {
         css: '../css/styles.css',
         jsMain: '../js/main.js',
-        jsContador: '../js/contador-tiempo.js',
-        jsTheme: '../js/theme.js'
+        jsContador: '../js/contador-tiempo.js'
     }
 };
+
+// Función para verificar si un archivo tiene Font Awesome
+function hasFontAwesome(content) {
+    return content.includes('font-awesome') || content.includes('fontawesome') || 
+           content.includes('cdnjs.cloudflare.com/ajax/libs/font-awesome');
+}
 
 // Función para agregar Font Awesome a un archivo HTML
 function addFontAwesomeToFile(filePath, config) {
@@ -41,7 +44,7 @@ function addFontAwesomeToFile(filePath, config) {
         let content = fs.readFileSync(filePath, 'utf8');
         
         // Verificar si ya tiene Font Awesome
-        if (content.includes('font-awesome') || content.includes('fontawesome')) {
+        if (hasFontAwesome(content)) {
             console.log(`✓ ${filePath} ya tiene Font Awesome`);
             return;
         }
@@ -53,13 +56,6 @@ function addFontAwesomeToFile(filePath, config) {
         if (match) {
             const fontAwesomeLink = '\n    <!-- Font Awesome para iconos -->\n    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">';
             content = content.replace(match[0], match[0] + fontAwesomeLink);
-            
-            // Asegurar que theme.js esté incluido
-            if (!content.includes('theme.js')) {
-                const scriptsRegex = /(<script[^>]*><\/script>\s*)+<\/body>/i;
-                const themeScript = `\n    <script src="${config.jsTheme}"></script>\n</body>`;
-                content = content.replace(/<\/body>/i, themeScript);
-            }
             
             fs.writeFileSync(filePath, content, 'utf8');
             console.log(`✓ ${filePath} actualizado con Font Awesome`);
@@ -83,4 +79,4 @@ htmlFiles.forEach(file => {
     }
 });
 
-console.log('\nProceso completado. Verifica que todas las páginas tengan Font Awesome y theme.js incluidos.');
+console.log('\nProceso completado. Verifica que todas las páginas tengan Font Awesome incluido.');
