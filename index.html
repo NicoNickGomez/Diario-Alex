@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">   
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <!-- Responsive -->
+        <title>Periodismo Independiente</title>
+        <!-- Título que aparece en la pestaña del navegador -->
+        
+        <meta name="description" content="Factor M - Periodismo independiente desde Mendoza, Argentina. Noticias de política, cultura, tecnología y deportes." />
+            <!-- Descripción -->
+        
+        <meta name="keywords" content="Noticias, Mendoza, Política, Cultura, Tecnología, Deportes, Periodismo Independiente" />
+            <!-- Palabras clave -->
+        
+        <meta name="Francisco Caroci" content="Factor M" />
+            <!-- Autor -->
+    
+        <!-- Google Fonts: importa las fuentes Montserrat y Open Sans desde Google -->
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+        
+        <!-- Hoja de estilos principal del sitio -->
+        <link rel="stylesheet" href="./css/styles.css" />
+    </head>
+
+<body>
+    
+        <!-- Contenido principal -->
+    
+    <!-- Enlace de accesibilidad: permite a usuarios con lectores de pantalla saltar directamente al contenido principal -->
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+    
+    <!-- Contenedor para el header que se carga dinámicamente mediante JavaScript -->
+    <div id="header-placeholder"></div>
+
+    <div class="breaking-news">
+        <div class="container">
+            <div class="breaking-content">
+                <span class="breaking-label">ÚLTIMO MOMENTO</span>
+                <span>Gobierno de Mendoza anuncia nuevas medidas para el sector vitivinícola • </span>
+                <span>Elecciones municipales: primeros resultados • Tecnología: Argentina lidera innovación en Latinoamérica</span>
+                    <span class="breaking-date contador-tiempo">Hace 5 minutos</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content - Contenido principal de la página -->
+    <main id="main-content">
+        
+        <div class="container">
+            <!-- Contenedor que limita el ancho máximo del contenido -->
+
+            <div class="news-grid">
+                <!-- Grid principal que divide el espacio entre artículo destacado y sidebar -->
+
+                <!-- Artículo destacado - Noticia principal del día -->
+                <article class="featured-article">
+                    <!-- Imagen principal del artículo con atributos de optimización -->
+                    <img src="imagenes/Legistaltura.webp" alt="Imagen principal del artículo destacado" class="featured-image" loading="lazy" />
+                    <!-- loading="lazy" mejora el rendimiento al cargar la imagen solo cuando es visible -->
+
+                    <div class="article-content">
+                        <!-- Categoría del artículo con estilo visual distintivo -->
+                        <span class="category-tag">POLÍTICA</span>
+
+                        <!-- Título principal del artículo -->
+                        <h1 class="article-title">Nueva ley de transparencia: un paso hacia la modernización del Estado mendocino</h1>
+
+                        <!-- Resumen o bajada del artículo -->
+                        <p class="article-excerpt">La Legislatura provincial aprobó por unanimidad el proyecto que establece nuevos mecanismos de control ciudadano y acceso a la información pública. La medida entrará en vigencia el próximo mes y promete revolucionar la relación entre gobierno y sociedad.</p>
+
+                        <!-- Metadatos del artículo: autor, fecha y tiempo de lectura -->
+                        <div class="article-meta">
+                            <span class="author">Por María González</span>
+                            <span>•</span>
+                                <span class="contador-tiempo"></span>
+                            <span>•</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Sidebar - Barra lateral con contenido complementario -->
+                <aside class="sidebar">
+                    <!-- Sección de noticias más leídas -->
+                    <div class="sidebar-section">
+                        <h3 class="sidebar-title">Más Leídas</h3>
+
+                        <!-- Cada noticia es clickable y abre un modal con más información -->
+                        <div class="news-item" onclick="openModal('modal1')">
+                            <h4>Crisis hídrica en Mendoza: expertos proponen soluciones innovadoras</h4>
+                            <div class="meta">Hace 4 horas • Ambiente</div>
+                        </div>
+
+                        <div class="news-item" onclick="openModal('modal2')">
+                            <h4>Startup mendocina desarrolla app para turismo sustentable</h4>
+                            <div class="meta">Hace 6 horas • Tecnología</div>
+                        </div>
+
+                        <div class="news-item" onclick="openModal('modal3')">
+                            <h4>Festival de cine independiente: Mendoza en el mapa cultural</h4>
+                            <div class="meta">Hace 8 horas • Cultura</div>
+                        </div>
+
+                        <div class="news-item" onclick="openModal('modal4')">
+                            <h4>Godoy Cruz busca refuerzos para la próxima temporada</h4>
+                            <div class="meta">Hace 12 horas • Deportes</div>
+                        </div>
+                    </div>
+
+                    <!-- Sección de editoriales -->
+                    <div class="sidebar-section">
+                        <h3 class="sidebar-title">Editorial</h3>
+                        <div class="news-item" onclick="openModal('editorial')">
+                            <h4>¿Por qué nace Factor M? Una nueva voz para el periodismo mendocino</h4>
+                            <div class="meta">Editorial • Dirección</div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+
+            <!-- Sección de Política -->
+            <section class="section">
+                <div class="section-header">
+                    <!-- Título de la sección con línea decorativa -->
+                    <h2 class="section-title">Política</h2>
+                    <div class="section-line"></div>
+                </div>
+
+                <div class="articles-grid">
+                    <!-- Grid de artículos en formato de tarjetas -->
+
+                    <!-- Primera tarjeta de política -->
+                    <article class="article-card">
+                        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Imagen representativa de política nacional" class="card-image" loading="lazy" />
+
+                        <div class="card-content">
+                            <span class="category-tag">NACIONAL</span>
+                            <h3 class="card-title">Debate presupuestario: las claves de la discusión en el Congreso</h3>
+                            <p class="card-excerpt">Los principales puntos de tensión entre oficialismo y oposición en la discusión del presupuesto 2024. Se espera una votación histórica esta semana.</p>
+
+                            <div class="article-meta" data-fecha="2025-08-28T15:00:00">
+                                <span class="author">Carlos Mendez</span> • <span class="contador-tiempo">Hace 3 horas</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Segunda tarjeta de política -->
+                    <article class="article-card">
+                        <img src="https://images.unsplash.com/photo-1518655048521-f130df041f66?auto=format&fit=crop&w=600&q=80" alt="Imagen representativa de elecciones locales" class="card-image" loading="lazy" />
+
+                        <div class="card-content">
+                            <span class="category-tag">LOCAL</span>
+                            <h3 class="card-title">Intendentes mendocinos evalúan gestión de residuos metropolitana</h3>
+                            <p class="card-excerpt">Reunión clave entre los principales municipios para abordar la crisis ambiental y proponer soluciones sostenibles a largo plazo.</p>
+
+                            <div class="article-meta" data-fecha="2025-08-28T13:00:00">
+                                <span class="author">Laura Sánchez</span> • <span class="contador-tiempo">Hace 5 horas</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Tercera tarjeta de tecnología -->
+                    <article class="article-card">
+                        <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=600&q=80" alt="Imagen representativa de tecnología" class="card-image" loading="lazy" />
+
+                        <div class="card-content">
+                            <span class="category-tag">TECNOLOGÍA</span>
+                            <h3 class="card-title">Argentina lidera innovación en inteligencia artificial en Latinoamérica</h3>
+                            <p class="card-excerpt">Empresas mendocinas desarrollan soluciones revolucionarias en IA aplicadas al agro y la industria vitivinícola.</p>
+
+                            <div class="article-meta" data-fecha="2025-08-28T11:00:00">
+                                <span class="author">Autor Anonimo</span> • <span class="contador-tiempo">Hace 7 horas</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Sección de Cultura -->
+            <section class="section">
+                <div class="section-header">
+                    <h2 class="section-title">Cultura</h2>
+                    <div class="section-line"></div>
+                </div>
+
+                <div class="articles-grid">
+                    <!-- Primera tarjeta de cultura -->
+                    <article class="article-card">
+                        <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80" alt="Festival de cine" class="card-image" loading="lazy" />
+
+                        <div class="card-content">
+                            <span class="category-tag">Cultura</span>
+                            <h3 class="card-title">Festival de cine independiente: Mendoza en el mapa cultural</h3>
+                            <p class="card-excerpt">Más de 50 películas de todo el mundo se presentarán en la 10ª edición del festival que posiciona a Mendoza como capital cultural.</p>
+
+                            <div class="article-meta" data-fecha="2025-08-27T10:00:00">
+                                <span class="author">Sofía Martínez</span> • <span class="contador-tiempo">Hace 1 día</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Segunda tarjeta de cultura -->
+                    <article class="article-card">
+                        <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Museo de arte" class="card-image" loading="lazy" />
+
+                        <div class="card-content">
+                            <span class="category-tag">ARTE</span>
+                            <h3 class="card-title">Nueva exposición en el Museo Municipal de Arte Moderno</h3>
+                            <p class="card-excerpt">"Visiones del Desierto" reúne obras de 20 artistas locales que exploran la identidad mendocina a través del paisaje.</p>
+
+                            <div class="article-meta" data-fecha="2025-08-28T15:00:00">
+                                <span class="author">Lucía Fernández</span> • <span class="contador-tiempo">Hace 3 horas</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Tercera tarjeta de cultura -->
+                    <article class="article-card">
+                        <img src="https://images.unsplash.com/photo-1507874457470-272b3c8d8ee2?auto=format&fit=crop&w=600&q=80" alt="Concierto" class="card-image" loading="lazy" />
+
+                        <div class="card-content">
+                            <span class="category-tag">MÚSICA</span>
+                            <h3 class="card-title">Orquesta Filarmónica presenta concierto gratuito en Plaza Independencia</h3>
+                            <p class="card-excerpt">La tradicional presentación al aire libre incluirá obras de Piazzolla y clásicos del folclore argentino.</p>
+
+                            <div class="article-meta" data-fecha="2025-08-28T13:00:00">
+                                <span class="author">Martín Rodríguez</span> • <span class="contador-tiempo">Hace 5 horas</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Sección de Deportes -->
+            <section class="section">
+                <div class="section-header">
+                    <h2 class="section-title">Deportes</h2>
+                    <div class="section-line"></div>
+                </div>
+
+                <div class="articles-grid">
+                    <article class="article-card">
+                        <img src="/imagenes/godoycruxplano.webp" alt="Godoy Cruz" class="card-image" loading="lazy" />
+
+                        <div class="card-content">
+                            <span class="category-tag">DEPORTES</span>
+                            <h3 class="card-title">Godoy Cruz busca refuerzos para la próxima temporada</h3>
+                            <p class="card-excerpt">El Tomba ya tiene en carpeta a varios jugadores para reforzar el equipo tras la última temporada.</p>
+
+                            <div class="article-meta" data-fecha="2025-08-28T06:00:00">
+                                <span class="author">Roberto Silva</span> • <span class="contador-tiempo">Hace 12 horas</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Contenedor para el footer que se carga dinámicamente -->
+    <div id="footer-placeholder"></div>
+
+        <!-- Scripts -->
+    <script src="./js/main.js"></script>
+    <script src="./js/contador-tiempo.js"></script>
+</body>
+</html>

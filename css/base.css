@@ -1,0 +1,20 @@
+/* base.css
+   Propósito: Reset de estilos, tipografías y colores globales.
+   No incluir aquí estilos de layout, header, footer ni componentes.
+*/
+
+/* Reset universal de márgenes, paddings y box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Tipografía y color de fondo global */
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    color: #000;
+    background-color: #dbdbdb;
+}
+/* ...otros estilos base... */

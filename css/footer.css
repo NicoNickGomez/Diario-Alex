@@ -1,0 +1,124 @@
+/*
+No incluir aquí estilos de layout, header ni componentes.
+ footer.css
+   Propósito: Estilos exclusivos del footer y sus secciones.
+   No incluir aquí estilos de layout, header ni componentes.
+*/
+
+/* --- FOOTER LIMPIO Y FUNCIONAL --- */
+footer {
+    background: linear-gradient(135deg, #1A2E4F 0%, #0f1a2e 100%);
+    color: #ffffff;
+    padding: 4rem 0 2rem;
+    margin-top: 5rem;
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #D72638, #ff4757, #D72638);
+}
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+.footer-section h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    color: #D72638;
+    position: relative;
+}
+.footer-section h3::after {
+    content: '';
+    position: absolute;
+    bottom: -0.5rem;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: #D72638;
+    border-radius: 2px;
+}
+.footer-section p {
+    color: #e0e0e0;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+.footer-section ul {
+    list-style: none;
+}
+.footer-section ul li {
+    margin-bottom: 0.8rem;
+}
+.footer-section a {
+    color: #b8c5d6;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    display: inline-block;
+    position: relative;
+}
+.footer-section a:hover {
+    color: #D72638;
+    transform: translateX(5px);
+}
+.footer-section a::before {
+    content: '→';
+    position: absolute;
+    left: -15px;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+.footer-section a:hover::before {
+    opacity: 1;
+    left: -10px;
+}
+.footer-bottom {
+    text-align: center;
+    padding-top: 2.5rem;
+    border-top: 2px solid rgba(215, 38, 56, 0.3);
+    color: #b8c5d6;
+    font-size: 0.9rem;
+}
+.footer-bottom p {
+    margin: 0;
+}
+
+/* Íconos sociales visibles y sin decoraciones extra */
+.footer-social a {
+    color: #ffffff;
+    background: none;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    font-size: 0;
+    position: relative;
+    transition: all 0.3s ease;
+}
+.footer-social a:hover {
+    color: #D72638;
+    background: none;
+    transform: translateY(-2px);
+}
+.footer-social a::before {
+    content: none;
+}
+.footer-social svg {
+    display: inline-block;
+    vertical-align: middle;
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+    margin: 0;
+    transition: all 0.3s ease;
+}

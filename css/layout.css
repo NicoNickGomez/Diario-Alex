@@ -1,0 +1,67 @@
+
+/* layout.css
+   Propósito: Estructura general del sitio (container, grids, sidebar, secciones).
+   No incluir aquí estilos de header, footer ni componentes.
+*/
+
+/* Contenedor principal de la página */
+.container {
+   max-width: 1200px;
+   margin: 0 auto;
+   padding: 0 20px;
+}
+
+/* Espaciado principal del contenido */
+main {
+   padding: 2rem 0;
+}
+
+/* Grid principal de noticias: dos columnas (noticias y sidebar) */
+.news-grid {
+   display: grid;
+   grid-template-columns: 2fr 1fr;
+   gap: 2rem;
+   margin-bottom: 3rem;
+}
+
+/* Sidebar y secciones internas */
+.sidebar {
+   display: flex;
+   flex-direction: column;
+   gap: 2rem;
+}
+.sidebar-section {
+   background: white;
+   border-radius: 8px;
+   padding: 1.5rem;
+   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+/* Secciones generales */
+.section {
+   margin-bottom: 3rem;
+}
+.section-header {
+   display: flex;
+   align-items: center;
+   margin-bottom: 2rem;
+}
+.section-title {
+   font-family: 'Montserrat', sans-serif;
+   font-weight: 700;
+   font-size: 2rem;
+   color: #1A2E4F;
+   margin-right: 1rem;
+}
+.section-line {
+   flex: 1;
+   height: 3px;
+   background: #D72638;
+}
+
+/* Grid de artículos dentro de secciones */
+.articles-grid {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+   gap: 2rem;
+}
