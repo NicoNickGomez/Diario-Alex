@@ -61,11 +61,59 @@ function updateNavigationLinks(basePath) {
     });
 }
 
-// La navegación móvil ahora está manejada por navigation.js
-// Esta función se mantiene vacía para evitar duplicación de funcionalidad
 function initNavigation() {
-    // La navegación móvil está completamente manejada por navigation.js
-    // No es necesario duplicar la funcionalidad aquí
+    const menuToggle = document.querySelector('.menu-toggle');
+    const primaryNav = document.getElementById('primary-navigation');
+
+    if (menuToggle && primaryNav) {
+        menuToggle.addEventListener('click', toggleMobileMenu);
+
+        // Cerrar menú al hacer clic en enlaces
+        primaryNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    closeMobileMenu();
+                }
+            });
+        });
+    }
+}
+
+function toggleMobileMenu() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const primaryNav = document.getElementById('primary-navigation');
+    if (!menuToggle || !primaryNav) return;
+
+    const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+
+    // Actualizar atributos ARIA para accesibilidad
+    menuToggle.setAttribute('aria-expanded', String(!isExpanded));
+    primaryNav.setAttribute('aria-expanded', String(!isExpanded));
+    primaryNav.setAttribute('aria-hidden', String(isExpanded));
+
+    // Toggle clase para animación - usar las clases que ya existen en CSS
+    if (isExpanded) {
+        menuToggle.classList.remove('open');
+    } else {
+        menuToggle.classList.add('open');
+        // Accesibilidad: mover foco al primer enlace del menú
+        const firstLink = primaryNav.querySelector('a');
+        if (firstLink) {
+            firstLink.focus();
+        }
+    }
+}
+
+function closeMobileMenu() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const primaryNav = document.getElementById('primary-navigation');
+    
+    if (menuToggle && primaryNav) {
+        menuToggle.setAttribute('aria-expanded', 'false');
+        primaryNav.setAttribute('aria-expanded', 'false');
+        primaryNav.setAttribute('aria-hidden', 'true');
+        menuToggle.classList.remove('open');
+    }
 }
 
 function initModals() {
