@@ -124,6 +124,15 @@
     .footer-content { grid-template-columns: 1fr; gap: 2rem; }
     .footer-section { text-align: center; }
     .footer-section h3::after { left: 50%; transform: translateX(-50%); }
+    /* Centrar íconos sociales en móvil */
+    .footer-section ul.footer-social {
+        justify-content: center;
+        display: flex;
+    }
+    .footer-section ul.footer-social li a svg {
+        display: block;
+        margin: 0 auto;
+    }
 }
 
 /* --- Escritorio --- */

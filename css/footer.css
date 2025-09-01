@@ -55,12 +55,16 @@ footer::before {
 .footer-section ul {
     list-style: none;
 }
+.footer-social {
+    justify-content: center;
+}
 .footer-section ul li {
     margin-bottom: 0.8rem;
 }
 .footer-section a {
     color: #b8c5d6;
     text-decoration: none;
+    align-items: center;
     transition: all 0.3s ease;
     font-weight: 500;
     display: inline-block;
@@ -97,17 +101,18 @@ footer::before {
     color: #ffffff;
     background: none;
     box-shadow: none;
-    padding: 0;
+    padding: 8px;
     margin: 0;
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    font-size: 0;
+    justify-content: center;
     position: relative;
     transition: all 0.3s ease;
+    border-radius: 5px;
 }
 .footer-social a:hover {
     color: #D72638;
-    background: none;
+    background: rgba(215, 38, 56, 0.1);
     transform: translateY(-2px);
 }
 .footer-social a::before {
@@ -115,10 +120,17 @@ footer::before {
 }
 .footer-social svg {
     display: inline-block;
-    vertical-align: middle;
-    width: 24px;
-    height: 24px;
+    width: 25px;
+    height: 25px;
     fill: currentColor;
     margin: 0;
     transition: all 0.3s ease;
+}
+.footer-social a[aria-label="X"] svg path {
+    fill: #000000; /* Color negro para el icono X (Twitter actualizado) */
+}
+.footer-social a[aria-label="Instagram"] svg {
+    width: 26px;
+    height: 26px;
+    fill: #ffffff; /* Color característico de Instagram */
 }

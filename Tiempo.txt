@@ -1,0 +1,25 @@
+<div class="tie-alignright">
+				<ul class="components"><li class="weather-menu-item menu-item custom-menu-link">
+				<div class="tie-weather-widget is-animated" title="Nubes Dispersas">
+					<div class="weather-wrap">
+
+						<div class="weather-forecast-day small-weather-icons">
+							
+					<div class="weather-icon">
+						<div class="icon-cloud"></div>
+						<div class="icon-cloud-behind"></div>
+						<div class="icon-basecloud-bg"></div>
+						<div class="icon-sun-animi"></div>
+					</div>
+										</div><!-- .weather-forecast-day -->
+
+						<div class="city-data">
+							<span>Mendoza</span>
+							<span class="weather-current-temp">
+								14								<sup>℃</sup>
+							</span>
+						</div><!-- .city-data -->
+
+					</div><!-- .weather-wrap -->
+				</div><!-- .tie-weather-widget -->
+				</li></ul><!-- Components -->			</div>
